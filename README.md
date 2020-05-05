@@ -31,7 +31,7 @@ Authentity is fully offline. Thus, no data is being sent or received to and from
 
 ## Security
 
-Authentity uses Apple's Face ID / Touch ID so only people who have access to this device could reach his 2FA/MFA authentication codes.
+Authentity uses Apple's Face ID / Touch ID so only users who have access to their device could reach his 2FA/MFA authentication codes.
 
 Authentity does not use any passcode to access 2FA/MFA authentication codes.
 
