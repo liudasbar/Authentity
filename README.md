@@ -4,8 +4,6 @@
 
 Authentity project is designed to safely keep your TOTP authentication codes in one place on the go. The project is fully open source and documented on GitHub and can be accessed by anyone at any time. The project uses mattrubin's OneTimePassword project as a base for configuring authentication details (via the detected QR code) and detecting any code changes.
 
-![Main Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9553.PNG)
-
 ### Abbreviations
 
 2FA - Two-Factor Authentication (Pick any two: Something you __know__, something you __have__, something you __are__).
