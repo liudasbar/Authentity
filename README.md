@@ -4,6 +4,12 @@
 
 Authentity project is designed to safely keep your TOTP authentication codes in one place on the go. The project is fully open source and documented on GitHub and can be accessed by anyone at any time. The project uses mattrubin's OneTimePassword project as a base for configuring authentication details (via the detected QR code) and detecting any code changes.
 
+![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9553.PNG)
+
+![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9556.jpg)
+
+![Image](https://github.com/liudasbar/Authentity/raw/master/IMG_9557.PNG)
+
 ### Abbreviations
 
 2FA - Two-Factor Authentication (Pick any two: Something you __know__, something you __have__, something you __are__).
@@ -37,9 +43,11 @@ In addition, it will provide a button to quit the application for the user so he
 
 In case user still cannot access his details inside the application, he is prompted with a button to remove all the data inside the application and continue using it. What is more, Face ID is disabled after pressing the button mentioned.
 
+![Image](https://github.com/liudasbar/Authentity/raw/master/IMG_9554.jpg)
+
 Authentity has one more security feature enabled. That is related to the details being hidden when application is switched to the *background* state. The details are brought back when application state comes back to *foreground*.
 
-
+![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9562.PNG)
 
 Lastly, there is no other way to access 2FA/MFA authentication codes. Only Face ID / Touch ID.
 
