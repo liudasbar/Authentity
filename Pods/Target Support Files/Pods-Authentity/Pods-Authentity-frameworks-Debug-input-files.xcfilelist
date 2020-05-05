@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-Authentity/Pods-Authentity-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Base32/Base32.framework
+${BUILT_PRODUCTS_DIR}/OneTimePassword/OneTimePassword.framework
