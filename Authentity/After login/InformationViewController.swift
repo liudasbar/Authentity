@@ -12,7 +12,7 @@ class InformationViewController: UIViewController {
 
     @IBOutlet weak var githubButton: UIButton!
     @IBAction func githubButtonAction(_ sender: UIButton) {
-        guard let url = URL(string: "https://github.com") else { return }
+        guard let url = URL(string: "https://github.com/liudasbar/Authentity") else { return }
         UIApplication.shared.open(url)
     }
     
