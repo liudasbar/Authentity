@@ -7,6 +7,7 @@ Authentity project is designed to safely keep your TOTP authentication codes in 
 ### Abbreviations
 
 2FA - Two-Factor Authentication (Pick any two: Something you __know__, something you __have__, something you __are__).
+
 MFA - Multi-Factor Authentication (Pick all of them: Something you __know__, something you __have__, something you __are__).
 
 ### Versions
