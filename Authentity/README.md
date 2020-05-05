@@ -42,7 +42,7 @@ Authentity has one more security feature enabled. That is related to the details
 
 Lastly, there is no other way to access 2FA/MFA authentication codes. Only Face ID / Touch ID.
 
-### License
+### OneTimePassword
 
 Link to OneTimePassword GitHub: [OneTimePassword](https://github.com/mattrubin/OneTimePassword)
 

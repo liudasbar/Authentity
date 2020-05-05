@@ -87,6 +87,7 @@ extension InitialViewController {
                         }
                     }
                     self.myContext.localizedFallbackTitle = ""  //No password available
+                    
                 } else {
                     //No biometry
                     infoLabel.text = "No biometry available. To continue using Authentity, quit Authentity, lock and unlock your phone."
