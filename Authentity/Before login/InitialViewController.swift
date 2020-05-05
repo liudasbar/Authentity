@@ -40,6 +40,7 @@ class InitialViewController: UIViewController {
         biometrics()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
