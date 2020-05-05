@@ -1,3 +1,4 @@
+![Logo](https://raw.githubusercontent.com/liudasbar/Authentity/master/logo.png)
 # Authentity
 
 ## Security made easy
