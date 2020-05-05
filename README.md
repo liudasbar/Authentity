@@ -29,7 +29,7 @@ User needs to grant these privacy permissions:
 
 Authentity is fully offline. Thus, no data is being sent or received to and from any server. Data collection is not implemented in any way.
 
-### Security
+## Security
 
 Authentity uses Apple's Face ID/Touch ID so only people who have access to this device could reach his 2FA/MFA authentication codes.
 
