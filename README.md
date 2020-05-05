@@ -23,7 +23,7 @@ The project is written on Xcode 11.5 for iOS/iPadOS devices from iOS 13. Could b
 
 User needs to grant these privacy permissions:
 * Camera - Used for adding new authentication entries via the QR code.
-* Face ID/Touch ID usage - Used for authenticating user via biometrics
+* Face ID/Touch ID usage - Used for authenticating user via biometrics.
 
 ## Offline
 
