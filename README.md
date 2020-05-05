@@ -44,7 +44,7 @@ In case user still cannot access his details inside the application, he is promp
 
 ![Image](https://github.com/liudasbar/Authentity/raw/master/IMG_9554.jpg)
 
-Authentity has one more security feature enabled. That is related to the details being hidden when application is switched to the *background* state. The details are brought back when application state comes back to *foreground*.
+Authentity has one more security feature enabled. That is, related to the details being hidden when application is switched to the *background* state. The details are brought back when application state comes back to *foreground*.
 
 ![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9562.PNG)
 
