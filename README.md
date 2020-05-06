@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/liudasbar/Authentity/master/logo.png)
 # Authentity - Security made easy
 
-Authentity project is designed to safely keep your authentication tokens in one place on the go. The project is fully open source and documented on GitHub and can be accessed by anyone at any time. The project uses [mattrubin](https://github.com/mattrubin/OneTimePassword)'s  OneTimePassword project as a base for configuring authentication details (via the detected QR code __only__) and detecting any code changes.
+Authentity project is designed to safely keep your authentication tokens in one place on the go. The project is fully open source and [documented](https://github.com/liudasbar/Authentity) on GitHub and can be accessed by anyone at any time. The project uses [mattrubin](https://github.com/mattrubin/OneTimePassword)'s  OneTimePassword project as a base for configuring authentication details (via the detected QR code __only__) and detecting any code changes.
 
 ![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9553.PNG)
 
