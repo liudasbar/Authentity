@@ -45,7 +45,7 @@ MFA - Multi-Factor Authentication (Pick all of them: Something you __know__, som
 
 ## Versions
 
-The project is written on Xcode 11.5 for iOS/iPadOS devices from iOS 13. Could be available for devices under iOS 13 but code changes may be required if any.
+The project is written on Xcode 11 for iOS/iPadOS devices from iOS 13. Could be available for devices under iOS 13 but code changes may be required if any.
 
 ## Privacy permissions
 
