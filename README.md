@@ -35,7 +35,7 @@ A minimalistic interface provides you with the best experience while using Authe
 - See on GitHub: https://github.com/liudasbar/Authentity
 
 Note:
-Authentity uses a QR code scanner only to add new tokens by using your device's camera.
+Authentity uses a QR code scanner __only__ to add new tokens by using your device's camera.
 
 ## Abbreviations
 
