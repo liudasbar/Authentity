@@ -108,7 +108,7 @@ extension InitialViewController {
                                     self!.removeDataButton.alpha = 0
                                     self!.infoLabel.alpha = 0
                                 }
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                     self!.continueButton.setTitle("Continue", for: .normal)
                                     self!.performSegue(withIdentifier: "loginSegue", sender: nil)
                                 }

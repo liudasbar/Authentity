@@ -512,28 +512,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygc-79-fUL">
-                                <rect key="frame" x="0.0" y="35" width="375" height="777"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nk9-Vk-7ec">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="777"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="systemUltraThinMaterial"/>
-                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" name="Dark-color"/>
                         <constraints>
-                            <constraint firstItem="Ygc-79-fUL" firstAttribute="top" secondItem="gYa-TL-R99" secondAttribute="top" constant="35" id="FkF-X1-YtR"/>
                             <constraint firstItem="7pP-Ub-c9u" firstAttribute="trailing" secondItem="gYa-TL-R99" secondAttribute="trailing" id="IyH-4b-OuJ"/>
                             <constraint firstItem="7pP-Ub-c9u" firstAttribute="leading" secondItem="gYa-TL-R99" secondAttribute="leading" id="Yhd-ZU-iNr"/>
                             <constraint firstItem="j2k-uQ-2EB" firstAttribute="top" secondItem="gYa-TL-R99" secondAttribute="top" id="Z0U-oO-kb6"/>
-                            <constraint firstItem="Ygc-79-fUL" firstAttribute="trailing" secondItem="vjq-rh-d7u" secondAttribute="trailing" id="gTD-YR-q2K"/>
                             <constraint firstItem="7pP-Ub-c9u" firstAttribute="top" secondItem="gYa-TL-R99" secondAttribute="top" constant="90" id="hGa-K3-WfM"/>
                             <constraint firstAttribute="bottom" secondItem="7pP-Ub-c9u" secondAttribute="bottom" id="k4X-fj-FgV"/>
-                            <constraint firstItem="Ygc-79-fUL" firstAttribute="leading" secondItem="vjq-rh-d7u" secondAttribute="leading" id="luL-1q-wy2"/>
                             <constraint firstItem="vjq-rh-d7u" firstAttribute="trailing" secondItem="j2k-uQ-2EB" secondAttribute="trailing" id="rLO-54-XQP"/>
                             <constraint firstItem="j2k-uQ-2EB" firstAttribute="leading" secondItem="vjq-rh-d7u" secondAttribute="leading" id="skd-B9-VJA"/>
-                            <constraint firstAttribute="bottom" secondItem="Ygc-79-fUL" secondAttribute="bottom" id="vYV-Cv-5Z8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vjq-rh-d7u"/>
                     </view>
@@ -541,7 +529,6 @@
                     <connections>
                         <outlet property="addButton" destination="2zx-M8-gpk" id="VRH-w2-nKU"/>
                         <outlet property="authentityButton" destination="0se-Kx-jpZ" id="RRf-xb-coS"/>
-                        <outlet property="blurView" destination="Ygc-79-fUL" id="AbC-K6-NGc"/>
                         <outlet property="faceIdButton" destination="qVb-Ui-d3z" id="hfx-fp-3dE"/>
                         <outlet property="tableView" destination="7pP-Ub-c9u" id="AJy-aL-mcX"/>
                     </connections>

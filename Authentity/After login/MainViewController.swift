@@ -85,7 +85,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var authentityButton: UIButton!
-    @IBOutlet weak var blurView: UIVisualEffectView!
     
     let myContext = LAContext()
     let myLocalizedReasonString = "Unlock Authentity"
@@ -130,8 +129,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        blurView.alpha = 0
-        
         addButton.tintColor = UIColor.green
         
         tableView.layer.cornerRadius = 37
@@ -166,8 +163,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func background(_ notification: Notification) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
     
     func scheduledTimerWithTimeInterval() {
         timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
