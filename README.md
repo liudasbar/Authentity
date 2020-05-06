@@ -9,6 +9,34 @@ Authentity project is designed to safely keep your authentication tokens in one 
 
 ![Image](https://github.com/liudasbar/Authentity/raw/master/IMG_9557.PNG)
 
+
+## Features
+
+Two-factor (2FA) and Multi-factor (MFA) authentication mechanisms increase the security of your account. It is a process of requiring you to verify your identity in two or more unique ways before you are granted access to your account.
+
+Learning the password or PIN for an account is what most hackers go after. Accessing your token generator and getting biological features is harder and that is the reason why 2FA and MFA are effective in providing greater security for your accounts. That is what Authentity brings you - a possibility to add more authentication factors to make your account even harder to be hacked.
+
+With Authentity you get:
+
+••• Security:
+- Authentity uses biometric authentication so only you have access to your 2FA/MFA authentication tokens.
+- While using Authentity, tokens are hidden when the application is in the background state.
+- Authentity does not use any password or PIN authentication so the biometric security (if enabled) is used all the time.
+- There is no other way anyone can access your generated tokens.
+
+••• Ease of use:
+A minimalistic interface provides you with the best experience while using Authentity token generator.
+
+••• Offline use:
+- Tokens are temporarily generated safely on your local device storage without any Internet connection requirement.
+
+••• Open-source project:
+- It is an open-source project documented on GitHub. Source code can be verified at any time by anyone.
+- See on GitHub: https://github.com/liudasbar/Authentity
+
+Note:
+Authentity uses a QR code scanner only to add new tokens by using your device's camera.
+
 ## Abbreviations
 
 2FA - Two-Factor Authentication (Pick any two: Something you __know__, something you __have__, something you __are__).
