@@ -25,7 +25,7 @@ With Authentity you get:
 - There is no other way anyone can access your generated tokens.
 
 ••• Ease of use:
-A minimalistic interface provides you with the best experience while using Authentity token generator.
+- A minimalistic interface provides you with the best experience while using Authentity token generator.
 
 ••• Offline use:
 - Tokens are temporarily generated safely on your local device storage without any Internet connection requirement.
