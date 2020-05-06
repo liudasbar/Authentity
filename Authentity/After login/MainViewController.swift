@@ -85,6 +85,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var authentityButton: UIButton!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     
     let myContext = LAContext()
     let myLocalizedReasonString = "Unlock Authentity"
@@ -103,36 +104,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             faceIdButton.tintColor = UIColor.darkGray
             UserDefaults.standard.set(false, forKey: "faceID")
         } else {
-            let context = LAContext()
-            var error: NSError?
-            
-            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                let reason = "Unlock Authentity"
-                
-                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
-                    [weak self] success, authenticationError in
-                    
-                    DispatchQueue.main.async {
-                        if success {
-                            self!.faceIdButton.tintColor = UIColor.green
-                            UserDefaults.standard.set(true, forKey: "faceID")
-                        } else {
-                            
-                        }
-                    }
-                }
-            } else {
-                //No biometry
-                let alert = UIAlertController(title: "Biometrics not enabled", message: "Biometrics authentication attempts possibly exceeded or permissions not granted", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
-                      switch action.style{
-                      case .default:
-                            print("")
-                      default:
-                        print("error")
-                    }}))
-                self.present(alert, animated: true, completion: nil)
-            }
+            faceIdButton.tintColor = UIColor.green
+            UserDefaults.standard.set(true, forKey: "faceID")
         }
     }
     
@@ -156,6 +129,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        blurView.alpha = 0
         
         addButton.tintColor = UIColor.green
         
@@ -181,23 +156,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.authArray = UserDefaults.standard.stringArray(forKey: "authArray") ?? []
         
         //Hide tableview entries when entered background
-        NotificationCenter.default.addObserver(self, selector: #selector(background), name: UIApplication.willResignActiveNotification, object: nil)
-        //Show tableview entries when entered background
-        NotificationCenter.default.addObserver(self, selector: #selector(foreground), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.background), name: UIApplication.willResignActiveNotification, object: nil)
         
+       
         scheduledTimerWithTimeInterval()
     }
     
     
     @objc func background(_ notification: Notification) {
-        authArray.removeAll()
-        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
     }
     
-    @objc func foreground(_ notification: Notification) {
-        self.authArray = UserDefaults.standard.stringArray(forKey: "authArray") ?? []
-        tableView.reloadData()
-    }
     
     
     func scheduledTimerWithTimeInterval() {

@@ -25,9 +25,26 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var removeDataButton: UIButton!
     @IBAction func removeDataButtonAction(_ sender: UIButton) {
         let authArray: [String] = []
+        
         UserDefaults.standard.set(authArray, forKey: "authArray")
         UserDefaults.standard.set(false, forKey: "faceID")
-        performSegue(withIdentifier: "loginSegue", sender: nil)
+        
+        
+        
+        
+        
+        let alert = UIAlertController(title: "Warning!", message: "Before you enable Biometrics authentication, lock and unlock your device!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
+              switch action.style{
+              case .default:
+                self.continueButton.alpha = 0
+                self.removeDataButton.alpha = 0
+                self.infoLabel.alpha = 0
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+              default:
+                print("error")
+            }}))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBOutlet weak var infoLabel: UILabel!
@@ -37,20 +54,30 @@ class InitialViewController: UIViewController {
     let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
     
     override func viewDidAppear(_ animated: Bool) {
-        biometrics()
+        continueButton.setTitle("Continue", for: .normal)
+        continueButton.alpha = 0
+        removeDataButton.alpha = 0
+        infoLabel.alpha = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.biometrics()
+        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        continueButton.alpha = 0
-        removeDataButton.alpha = 0
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
         
         removeDataButton.layer.cornerRadius = 10
         removeDataButton.layer.masksToBounds = true
+        
+        continueButton.setTitle("Continue", for: .normal)
+        
+        continueButton.alpha = 0
+        removeDataButton.alpha = 0
+        infoLabel.alpha = 0
         
         infoLabel.text = ""
     }
@@ -76,10 +103,18 @@ extension InitialViewController {
                         
                         DispatchQueue.main.async {
                             if success {
-                                self!.performSegue(withIdentifier: "loginSegue", sender: nil)
+                                UIView.animate(withDuration: 0.5) {
+                                    self!.continueButton.alpha = 0
+                                    self!.removeDataButton.alpha = 0
+                                    self!.infoLabel.alpha = 0
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    self!.continueButton.setTitle("Continue", for: .normal)
+                                    self!.performSegue(withIdentifier: "loginSegue", sender: nil)
+                                }
                             } else {
                                 self!.continueButton.setTitle("Try again", for: .normal)
-                                self!.infoLabel.text = "Authentication failed."
+                                self!.infoLabel.text = "Authentication failed"
                                 UIView.animate(withDuration: 0.5) {
                                     self!.continueButton.alpha = 1
                                     self!.infoLabel.alpha = 1
@@ -91,7 +126,7 @@ extension InitialViewController {
                     
                 } else {
                     //No biometry
-                    infoLabel.text = "No biometry available. To continue using Authentity, quit Authentity, lock and unlock your phone."
+                    infoLabel.text = "No biometry available. To continue using Authentity, quit Authentity, lock and unlock your phone"
                     
                     UIView.animate(withDuration: 1) {
                         self.removeDataButton.alpha = 1
@@ -99,7 +134,6 @@ extension InitialViewController {
                         self.continueButton.setTitle("Quit Authentity", for: .normal)
                         self.infoLabel.alpha = 1
                     }
-
                 }
             } else {
                 performSegue(withIdentifier: "loginSegue", sender: nil)
