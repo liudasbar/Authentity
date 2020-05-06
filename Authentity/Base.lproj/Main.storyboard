@@ -310,8 +310,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0, Build 7" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYI-u7-ybv">
-                                <rect key="frame" x="120.00000000000001" y="734" width="135.33333333333337" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: x.x, Build x" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYI-u7-ybv">
+                                <rect key="frame" x="117.33333333333333" y="734" width="140.33333333333337" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="tAx-eO-2mb"/>
                                 </constraints>
@@ -379,6 +379,7 @@
                     <connections>
                         <outlet property="githubButton" destination="zca-de-a9B" id="dLG-yy-M1q"/>
                         <outlet property="privacyPolicyButton" destination="9Cq-qh-H6q" id="7Aa-qk-e9j"/>
+                        <outlet property="versionLabel" destination="FYI-u7-ybv" id="leO-eg-duf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAd-x2-Qt3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
