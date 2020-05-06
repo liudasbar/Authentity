@@ -66,6 +66,23 @@ class AddViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         
         addButton.alpha = 0
         
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+            if response {
+                //access granted
+            } else {
+                let alert = UIAlertController(title: "Camera permissions not granted", message: "You may want to enable it in your device's Privacy settings later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
+                      switch action.style{
+                      case .default:
+                            print("")
+                      default:
+                        print("error")
+                    }}))
+                self.present(alert, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
 

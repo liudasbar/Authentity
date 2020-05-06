@@ -123,7 +123,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             } else {
                 //No biometry
-                let alert = UIAlertController(title: "Face ID not enabled", message: "Face ID attempts possibly exceeded", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Biometrics not enabled", message: "Biometrics authentication attempts possibly exceeded or permissions not granted", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
                       switch action.style{
                       case .default:
