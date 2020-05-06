@@ -299,14 +299,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPt-YA-5e2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPt-YA-5e2">
                                 <rect key="frame" x="30" y="258" width="315" height="107.66666666666669"/>
                                 <string key="text">Authentity project uses mattrubin's OneTimePassword project as a base for configuring authentication details (via the detected QR code) and detecting any code changes.</string>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authentity project is fully open source and documented on GitHub and can be accessed by anyone at any time." lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-iw-OVk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authentity project is fully open source and documented on GitHub and can be accessed by anyone at any time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-iw-OVk">
                                 <rect key="frame" x="30" y="385.66666666666669" width="315" height="64.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -388,7 +388,7 @@
                                             <constraint firstAttribute="height" constant="40" id="cc2-Hn-8GM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Authentity"/>
                                         <connections>
                                             <segue destination="QII-mr-pw1" kind="show" id="npR-8i-4MM"/>
@@ -507,7 +507,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-46-OSH">
-                                <rect key="frame" x="37.666666666666657" y="136" width="300" height="300"/>
+                                <rect key="frame" x="37.666666666666657" y="140" width="300" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="WW9-MM-zod"/>
@@ -515,7 +515,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9g-bG-cGi">
-                                <rect key="frame" x="37.666666666666657" y="648" width="300" height="50"/>
+                                <rect key="frame" x="37.666666666666657" y="692" width="300" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kxq-Zz-aPO"/>
@@ -529,14 +529,14 @@
                                     <action selector="addButtonAction:" destination="9aV-cK-PY3" eventType="touchUpInside" id="EJ6-RN-i5d"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5H-kW-FaE">
-                                <rect key="frame" x="25" y="538" width="325" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5H-kW-FaE">
+                                <rect key="frame" x="37" y="602" width="301" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issuer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-q6-zoh">
-                                <rect key="frame" x="25" y="582" width="325" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issuer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-q6-zoh">
+                                <rect key="frame" x="37" y="636" width="301" height="26"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -544,15 +544,15 @@
                         </subviews>
                         <color key="backgroundColor" name="Dark-color"/>
                         <constraints>
-                            <constraint firstItem="oT0-46-OSH" firstAttribute="centerY" secondItem="LLq-Di-seX" secondAttribute="centerY" constant="-120" id="RRV-dp-rFa"/>
-                            <constraint firstItem="Xw6-ge-wXc" firstAttribute="trailing" secondItem="KEg-q6-zoh" secondAttribute="trailing" constant="25" id="U0o-Dk-sLs"/>
-                            <constraint firstItem="KEg-q6-zoh" firstAttribute="leading" secondItem="Xw6-ge-wXc" secondAttribute="leading" constant="25" id="YyH-SS-Xlc"/>
-                            <constraint firstItem="Y5H-kW-FaE" firstAttribute="leading" secondItem="Xw6-ge-wXc" secondAttribute="leading" constant="25" id="isb-th-S3O"/>
-                            <constraint firstItem="Xw6-ge-wXc" firstAttribute="bottom" secondItem="b9g-bG-cGi" secondAttribute="bottom" constant="80" id="kWX-3I-vX1"/>
+                            <constraint firstItem="KEg-q6-zoh" firstAttribute="top" secondItem="Y5H-kW-FaE" secondAttribute="bottom" id="93g-Y6-OAd"/>
+                            <constraint firstItem="Xw6-ge-wXc" firstAttribute="trailing" secondItem="Y5H-kW-FaE" secondAttribute="trailing" constant="37" id="LO3-fF-wEj"/>
+                            <constraint firstItem="KEg-q6-zoh" firstAttribute="leading" secondItem="Xw6-ge-wXc" secondAttribute="leading" constant="37" id="YyH-SS-Xlc"/>
+                            <constraint firstItem="oT0-46-OSH" firstAttribute="top" secondItem="LLq-Di-seX" secondAttribute="top" constant="140" id="ZhY-cm-8qb"/>
+                            <constraint firstItem="b9g-bG-cGi" firstAttribute="top" secondItem="KEg-q6-zoh" secondAttribute="bottom" constant="30" id="gUd-EU-AOS"/>
+                            <constraint firstItem="Y5H-kW-FaE" firstAttribute="leading" secondItem="Xw6-ge-wXc" secondAttribute="leading" constant="37" id="isb-th-S3O"/>
+                            <constraint firstAttribute="bottom" secondItem="b9g-bG-cGi" secondAttribute="bottom" constant="70" id="kWX-3I-vX1"/>
+                            <constraint firstItem="Xw6-ge-wXc" firstAttribute="trailing" secondItem="KEg-q6-zoh" secondAttribute="trailing" constant="37" id="kaK-UN-9V1"/>
                             <constraint firstItem="b9g-bG-cGi" firstAttribute="centerX" secondItem="LLq-Di-seX" secondAttribute="centerX" id="lQS-ut-Gxw"/>
-                            <constraint firstItem="b9g-bG-cGi" firstAttribute="top" secondItem="KEg-q6-zoh" secondAttribute="bottom" constant="40" id="nuw-yk-e12"/>
-                            <constraint firstItem="KEg-q6-zoh" firstAttribute="top" secondItem="Y5H-kW-FaE" secondAttribute="bottom" constant="10" id="rop-0S-C7q"/>
-                            <constraint firstItem="Xw6-ge-wXc" firstAttribute="trailing" secondItem="Y5H-kW-FaE" secondAttribute="trailing" constant="25" id="xhj-Od-cEV"/>
                             <constraint firstItem="oT0-46-OSH" firstAttribute="centerX" secondItem="LLq-Di-seX" secondAttribute="centerX" id="zqb-JF-Qpl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xw6-ge-wXc"/>
