@@ -65,7 +65,7 @@ Authentity uses Apple's Face ID / Touch ID so only users who have access to thei
 
 Authentity does not use any passcode to access 2FA/MFA authentication tokens.
 
-Apple Keychain is a secure storage. Authentity stores scanned QR codes' addresses (sensitive data) in it by using [evgenyneu](https://github.com/evgenyneu/keychain-swift)'s keychain-swift open-source project. Once stored in Keychain, this information is only available to your app, other apps can't see it. Besides that, iOS/iPadOS operating system makes sure this information is kept and processed securely. For example, text stored in Keychain can not be extracted from iPhone backup or from its file system.
+Apple Keychain is a secure storage. Authentity stores scanned QR codes' addresses (sensitive data) in it by using [evgenyneu](https://github.com/evgenyneu/keychain-swift)'s keychain-swift open-source project. Once stored in Keychain, this information is only available to Authentity app, other apps can't see it. Besides that, iOS/iPadOS operating system makes sure this information is kept and processed securely. For example, text stored in Keychain can not be extracted from iPhone backup or from its file system.
 
 When user exceeds Face ID / Touch ID attempts, the application will throw a message saying the following:
 *To continue using Authentity, quit Authentity, lock and unlock your phone*.
