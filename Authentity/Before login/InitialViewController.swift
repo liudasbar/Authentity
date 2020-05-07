@@ -8,6 +8,7 @@
 
 import UIKit
 import LocalAuthentication
+import KeychainSwift
 
 class InitialViewController: UIViewController, cameraPermissions {
     
@@ -33,6 +34,7 @@ class InitialViewController: UIViewController, cameraPermissions {
         let authArray: [String] = []
         
         UserDefaults.standard.set(authArray, forKey: "authArray")
+        KeychainSwift().clear()
         UserDefaults.standard.set(false, forKey: "faceID")
         
         let alert = UIAlertController(title: "Warning!", message: "Before you enable Biometrics authentication, lock and unlock your device or check Biometrics permissions in Settings!", preferredStyle: .alert)

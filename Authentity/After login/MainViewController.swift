@@ -89,7 +89,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             keychain.delete(authArray[indexPath.row])
             
             //Remove associated identificator from authArray
-            self.authArray.remove(at: indexPath.row)
+            authArray.remove(at: indexPath.row)
+            
+            //Save authArray to UserDefaults
+            UserDefaults.standard.set(authArray, forKey: "authArray")
             
             tableView.reloadData()
         }
@@ -156,7 +159,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             //Append unique identifier to authArray
             authArray.append(key)
             
-            //Update unique identifiers array
+            //Update unique identifiers array into UserDefaults
             UserDefaults.standard.set(authArray, forKey: "authArray")
         } else {
             let alert = UIAlertController(title: "Error!", message: "Entry not saved: Keychain error", preferredStyle: .alert)
