@@ -134,6 +134,16 @@ class AddViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                 
                 let url = URL(string: address!)
                 
+                //Protects from not otpauth QR code
+                guard url != nil else {
+                    nameLabel.text = "Wrong QR code"
+                    issuerLabel.text = "Not two-factor authentication QR code"
+                    UIView.animate(withDuration: 0.5) {
+                        self.addButton.alpha = 0
+                    }
+                    return
+                }
+                
                 if let token = Token(url: url!) {
                     
                     nameLabel.text = token.name

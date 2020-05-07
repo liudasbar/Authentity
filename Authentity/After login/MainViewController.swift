@@ -85,10 +85,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.authArray.remove(at: indexPath.row)
             
             //Remove Keychain item associated with authArray's identificator
             keychain.delete(authArray[indexPath.row])
+            
+            //Remove associated identificator from authArray
+            self.authArray.remove(at: indexPath.row)
             
             tableView.reloadData()
         }
@@ -147,10 +149,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Create unique identifier for Keychain item
         let key: String = token!.name + token!.issuer + token!.currentPassword!
         
-        //Save token to Keychain
+        //Save QR code String to Keychain
         keychain.set(url, forKey: key)
         
-        //Check if token saved to Keychain
+        //Check if QR code String saved to Keychain
         if keychain.set(url, forKey: key) {
             //Append unique identifier to authArray
             authArray.append(key)
