@@ -274,7 +274,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zca-de-a9B">
-                                <rect key="frame" x="37.666666666666657" y="664" width="300" height="50"/>
+                                <rect key="frame" x="37.666666666666657" y="669" width="300" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Xus-6W-XX5"/>
@@ -298,14 +298,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPt-YA-5e2">
-                                <rect key="frame" x="30" y="227.99999999999997" width="315" height="107.66666666666666"/>
+                                <rect key="frame" x="25" y="222.99999999999997" width="325" height="107.66666666666666"/>
                                 <string key="text">Authentity project uses mattrubin's OneTimePassword project as a base for configuring authentication details (via the detected QR code) and generating tokens.</string>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authentity project is fully open source and documented on GitHub and can be accessed by anyone at any time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-iw-OVk">
-                                <rect key="frame" x="30" y="355.66666666666669" width="315" height="64.666666666666686"/>
+                                <rect key="frame" x="30" y="425.33333333333331" width="315" height="64.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -329,13 +329,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's all about your security" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJV-AT-1YV">
-                                <rect key="frame" x="30" y="189" width="315" height="29"/>
+                                <rect key="frame" x="30" y="184" width="315" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cq-qh-H6q">
-                                <rect key="frame" x="37.666666666666657" y="604" width="300" height="40"/>
+                                <rect key="frame" x="37.666666666666657" y="609" width="300" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4L2-fr-L6x"/>
@@ -349,6 +349,12 @@
                                     <action selector="privacyPolicyButtonAction:" destination="QII-mr-pw1" eventType="touchUpInside" id="ysR-c9-aAw"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generated tokens are saved in Apple's Keychain by using evgenyneu's keychain-swift open-source project." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYK-AW-47O">
+                                <rect key="frame" x="25" y="345.66666666666669" width="325" height="64.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="Dark-color"/>
                         <constraints>
@@ -358,20 +364,23 @@
                             <constraint firstItem="hFm-Ba-uhk" firstAttribute="top" secondItem="FYI-u7-ybv" secondAttribute="bottom" id="EmI-cn-UMM"/>
                             <constraint firstItem="zca-de-a9B" firstAttribute="top" secondItem="9Cq-qh-H6q" secondAttribute="bottom" constant="20" id="ImF-sp-CgK"/>
                             <constraint firstItem="9Cq-qh-H6q" firstAttribute="centerX" secondItem="A8W-4Y-oGX" secondAttribute="centerX" id="Nco-0P-WH5"/>
-                            <constraint firstItem="AHe-iw-OVk" firstAttribute="top" secondItem="mPt-YA-5e2" secondAttribute="bottom" constant="20" id="Pfe-eB-bas"/>
+                            <constraint firstItem="rYK-AW-47O" firstAttribute="top" secondItem="mPt-YA-5e2" secondAttribute="bottom" constant="15" id="OEr-Wy-5ff"/>
                             <constraint firstItem="9ez-xr-Wwl" firstAttribute="leading" secondItem="Tz1-WM-4YP" secondAttribute="leading" constant="30" id="QQk-35-Ro9"/>
-                            <constraint firstItem="Tz1-WM-4YP" firstAttribute="trailing" secondItem="mPt-YA-5e2" secondAttribute="trailing" constant="30" id="RXg-WX-fu4"/>
+                            <constraint firstItem="Tz1-WM-4YP" firstAttribute="trailing" secondItem="mPt-YA-5e2" secondAttribute="trailing" constant="25" id="RXg-WX-fu4"/>
                             <constraint firstItem="hFm-Ba-uhk" firstAttribute="centerX" secondItem="A8W-4Y-oGX" secondAttribute="centerX" id="UjI-4e-FWI"/>
-                            <constraint firstItem="SJV-AT-1YV" firstAttribute="top" secondItem="9ez-xr-Wwl" secondAttribute="bottom" constant="35" id="Z00-uO-tGE"/>
-                            <constraint firstItem="mPt-YA-5e2" firstAttribute="leading" secondItem="Tz1-WM-4YP" secondAttribute="leading" constant="30" id="Z8d-ih-BOH"/>
+                            <constraint firstAttribute="trailing" secondItem="rYK-AW-47O" secondAttribute="trailing" constant="25" id="WAT-An-RAp"/>
+                            <constraint firstItem="AHe-iw-OVk" firstAttribute="top" secondItem="rYK-AW-47O" secondAttribute="bottom" constant="15" id="Wqm-Ka-90r"/>
+                            <constraint firstItem="SJV-AT-1YV" firstAttribute="top" secondItem="9ez-xr-Wwl" secondAttribute="bottom" constant="30" id="Z00-uO-tGE"/>
+                            <constraint firstItem="mPt-YA-5e2" firstAttribute="leading" secondItem="Tz1-WM-4YP" secondAttribute="leading" constant="25" id="Z8d-ih-BOH"/>
                             <constraint firstItem="mPt-YA-5e2" firstAttribute="top" secondItem="SJV-AT-1YV" secondAttribute="bottom" constant="10" id="b8r-5Q-9vS"/>
                             <constraint firstItem="FYI-u7-ybv" firstAttribute="centerX" secondItem="A8W-4Y-oGX" secondAttribute="centerX" id="brv-4g-s6n"/>
                             <constraint firstItem="9ez-xr-Wwl" firstAttribute="top" secondItem="Tz1-WM-4YP" secondAttribute="top" constant="30" id="cwT-Ug-h5B"/>
+                            <constraint firstItem="rYK-AW-47O" firstAttribute="leading" secondItem="A8W-4Y-oGX" secondAttribute="leading" constant="25" id="eYX-LW-SrY"/>
                             <constraint firstItem="Tz1-WM-4YP" firstAttribute="trailing" secondItem="9ez-xr-Wwl" secondAttribute="trailing" constant="30" id="noE-ti-0Tn"/>
                             <constraint firstItem="zca-de-a9B" firstAttribute="centerX" secondItem="A8W-4Y-oGX" secondAttribute="centerX" id="pLX-OU-0JV"/>
                             <constraint firstItem="SJV-AT-1YV" firstAttribute="leading" secondItem="Tz1-WM-4YP" secondAttribute="leading" constant="30" id="tFd-WY-7CT"/>
                             <constraint firstItem="Tz1-WM-4YP" firstAttribute="trailing" secondItem="SJV-AT-1YV" secondAttribute="trailing" constant="30" id="v7T-Zm-Env"/>
-                            <constraint firstItem="FYI-u7-ybv" firstAttribute="top" secondItem="zca-de-a9B" secondAttribute="bottom" constant="20" id="yNl-Gk-ZMJ"/>
+                            <constraint firstItem="FYI-u7-ybv" firstAttribute="top" secondItem="zca-de-a9B" secondAttribute="bottom" constant="15" id="yNl-Gk-ZMJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tz1-WM-4YP"/>
                     </view>
