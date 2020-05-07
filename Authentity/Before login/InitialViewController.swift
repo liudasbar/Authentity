@@ -139,7 +139,7 @@ extension InitialViewController {
                             } else {
                                 //Did not authenticate successfully
                                 self!.continueButton.setTitle("Try again", for: .normal)
-                                self!.infoLabel.text = "Authentication failed"
+                                //self!.infoLabel.text = "Authentication failed"
                                 UIView.animate(withDuration: 0.5) {
                                     self!.continueButton.alpha = 1
                                     self!.infoLabel.alpha = 1
