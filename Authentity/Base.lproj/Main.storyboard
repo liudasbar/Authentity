@@ -546,7 +546,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-46-OSH">
-                                <rect key="frame" x="37.666666666666657" y="100" width="300" height="300"/>
+                                <rect key="frame" x="37.666666666666657" y="120" width="300" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="WW9-MM-zod"/>
@@ -580,18 +580,27 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan a QR code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-Nf-wMH">
+                                <rect key="frame" x="37" y="75" width="301" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="Dark-color"/>
                         <constraints>
+                            <constraint firstItem="oT0-46-OSH" firstAttribute="top" secondItem="MP1-Nf-wMH" secondAttribute="bottom" constant="15" id="2Rw-Pz-M7x"/>
                             <constraint firstItem="KEg-q6-zoh" firstAttribute="top" secondItem="Y5H-kW-FaE" secondAttribute="bottom" id="93g-Y6-OAd"/>
                             <constraint firstItem="Xw6-ge-wXc" firstAttribute="trailing" secondItem="Y5H-kW-FaE" secondAttribute="trailing" constant="37" id="LO3-fF-wEj"/>
                             <constraint firstItem="KEg-q6-zoh" firstAttribute="leading" secondItem="Xw6-ge-wXc" secondAttribute="leading" constant="37" id="YyH-SS-Xlc"/>
-                            <constraint firstItem="oT0-46-OSH" firstAttribute="top" secondItem="LLq-Di-seX" secondAttribute="top" constant="100" id="ZhY-cm-8qb"/>
+                            <constraint firstItem="oT0-46-OSH" firstAttribute="top" secondItem="LLq-Di-seX" secondAttribute="top" constant="120" id="ZhY-cm-8qb"/>
                             <constraint firstItem="b9g-bG-cGi" firstAttribute="top" secondItem="KEg-q6-zoh" secondAttribute="bottom" constant="30" id="gUd-EU-AOS"/>
                             <constraint firstItem="Y5H-kW-FaE" firstAttribute="leading" secondItem="Xw6-ge-wXc" secondAttribute="leading" constant="37" id="isb-th-S3O"/>
                             <constraint firstAttribute="bottom" secondItem="b9g-bG-cGi" secondAttribute="bottom" constant="50" id="kWX-3I-vX1"/>
                             <constraint firstItem="Xw6-ge-wXc" firstAttribute="trailing" secondItem="KEg-q6-zoh" secondAttribute="trailing" constant="37" id="kaK-UN-9V1"/>
                             <constraint firstItem="b9g-bG-cGi" firstAttribute="centerX" secondItem="LLq-Di-seX" secondAttribute="centerX" id="lQS-ut-Gxw"/>
+                            <constraint firstItem="Xw6-ge-wXc" firstAttribute="trailing" secondItem="MP1-Nf-wMH" secondAttribute="trailing" constant="37" id="qNw-2u-zrl"/>
+                            <constraint firstItem="MP1-Nf-wMH" firstAttribute="leading" secondItem="Xw6-ge-wXc" secondAttribute="leading" constant="37" id="rfb-9B-UMG"/>
                             <constraint firstItem="oT0-46-OSH" firstAttribute="centerX" secondItem="LLq-Di-seX" secondAttribute="centerX" id="zqb-JF-Qpl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xw6-ge-wXc"/>
