@@ -33,7 +33,7 @@ class InitialViewController: UIViewController {
         
         
         
-        let alert = UIAlertController(title: "Warning!", message: "Before you enable Biometrics authentication, lock and unlock your device!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Warning!", message: "Before you enable Biometrics authentication, lock and unlock your device or check Biometrics permissions in Settings!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
               switch action.style{
               case .default:
@@ -126,7 +126,7 @@ extension InitialViewController {
                     
                 } else {
                     //No biometry
-                    infoLabel.text = "No biometry available. To continue using Authentity, quit Authentity, lock and unlock your phone"
+                    infoLabel.text = "No biometry available. To continue using Authentity, quit Authentity, lock and unlock your phone or check Biometrics permissions in Settings!"
                     
                     UIView.animate(withDuration: 1) {
                         self.removeDataButton.alpha = 1

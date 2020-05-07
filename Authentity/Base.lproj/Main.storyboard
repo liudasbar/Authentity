@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pU5-6G-SJ2">
-                                <rect key="frame" x="37.666666666666657" y="622" width="300" height="50"/>
+                                <rect key="frame" x="37.666666666666657" y="602" width="300" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="PoT-wH-9r6"/>
@@ -46,14 +46,14 @@
                                     <action selector="continueButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l45-wx-wrt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvH-DX-DWC">
-                                <rect key="frame" x="30" y="702" width="315" height="21.666666666666629"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvH-DX-DWC">
+                                <rect key="frame" x="30" y="682" width="315" height="21.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDy-IU-R5V">
-                                <rect key="frame" x="37.666666666666657" y="547" width="300" height="50"/>
+                                <rect key="frame" x="37.666666666666657" y="527" width="300" height="50"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Jup-ky-iIj"/>
@@ -77,7 +77,7 @@
                             <constraint firstItem="wDy-IU-R5V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bdN-6t-k4m"/>
                             <constraint firstItem="rrP-5q-DVi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bjw-X7-1S5"/>
                             <constraint firstItem="qvH-DX-DWC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="dLY-GI-gEC"/>
-                            <constraint firstAttribute="bottom" secondItem="pU5-6G-SJ2" secondAttribute="bottom" constant="140" id="e0i-Wp-qx0"/>
+                            <constraint firstAttribute="bottom" secondItem="pU5-6G-SJ2" secondAttribute="bottom" constant="160" id="e0i-Wp-qx0"/>
                             <constraint firstItem="rrP-5q-DVi" firstAttribute="top" secondItem="PWW-Mf-jaQ" secondAttribute="bottom" constant="-15" id="jiO-Wd-Fes"/>
                             <constraint firstItem="PWW-Mf-jaQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="nXu-Qy-VJQ"/>
                             <constraint firstItem="pU5-6G-SJ2" firstAttribute="top" secondItem="wDy-IU-R5V" secondAttribute="bottom" constant="25" id="tco-tn-Lmv"/>
