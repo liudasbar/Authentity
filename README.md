@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/liudasbar/Authentity/master/logo.png)
 # Authentity - Security made easy
 
-Authentity project is designed to safely keep your authentication tokens in one place on the go. The project is fully open source and [documented](https://github.com/liudasbar/Authentity) on GitHub and can be accessed by anyone at any time. The project uses [mattrubin](https://github.com/mattrubin/OneTimePassword)'s  OneTimePassword project as a base for configuring authentication details (via the detected QR code __only__) and detecting any code changes.
+Authentity project is designed to safely keep your authentication tokens in one place on the go. The project is fully open source and [documented](https://github.com/liudasbar/Authentity) on GitHub and can be accessed by anyone at any time. The project uses [mattrubin](https://github.com/mattrubin/OneTimePassword)'s *OneTimePassword* project as a base for configuring authentication details (via the detected QR code __only__) and detecting any code changes. In addition, generated tokens are saved in Apple's Keychain by using [evgenyneu](https://github.com/evgenyneu/keychain-swift)'s *keychain-swift* open-source project.
 
 [![Download on the App Store](https://raw.githubusercontent.com/liudasbar/Authentity/master/App_Store_Badge_180px.jpg)](https://apps.apple.com/us/app/authentity/id1511791665)
 
@@ -64,6 +64,8 @@ Authentity is fully offline. Thus, no data is being sent or received to and from
 Authentity uses Apple's Face ID / Touch ID so only users who have access to their device could reach their 2FA/MFA authentication tokens.
 
 Authentity does not use any passcode to access 2FA/MFA authentication tokens.
+
+Apple Keychain is a secure storage. Authentity stores scanned QR codes' addresses (sensitive data) in it by using [evgenyneu](https://github.com/evgenyneu/keychain-swift)'s keychain-swift open-source project. Once stored in Keychain, this information is only available to your app, other apps can't see it. Besides that, iOS/iPadOS operating system makes sure this information is kept and processed securely. For example, text stored in Keychain can not be extracted from iPhone backup or from its file system.
 
 When user exceeds Face ID / Touch ID attempts, the application will throw a message saying the following:
 *To continue using Authentity, quit Authentity, lock and unlock your phone*.
