@@ -579,15 +579,15 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y5H-kW-FaE">
-                                <rect key="frame" x="37" y="559.66666666666663" width="301" height="32.333333333333371"/>
+                                <rect key="frame" x="37" y="560.66666666666663" width="301" height="32.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issuer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-q6-zoh">
-                                <rect key="frame" x="37" y="597" width="301" height="55"/>
+                                <rect key="frame" x="37" y="598" width="301" height="54"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="3R8-jN-aZv"/>
+                                    <constraint firstAttribute="height" constant="54" id="3R8-jN-aZv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

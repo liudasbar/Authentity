@@ -63,7 +63,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             cell.numberLabel.text = newText
-            
             cell.nameLabel.text = token.name
             cell.issuerLabel.text = token.issuer
         } else {
