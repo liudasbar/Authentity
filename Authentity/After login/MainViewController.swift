@@ -155,7 +155,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Hide tableview entries when entered background
         NotificationCenter.default.addObserver(self, selector: #selector(self.background), name: UIApplication.willResignActiveNotification, object: nil)
         
-       
         scheduledTimerWithTimeInterval()
     }
     
