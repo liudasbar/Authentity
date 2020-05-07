@@ -22,6 +22,7 @@ With Authentity you get:
 
 ••• Security:
 - Authentity uses biometric authentication so only you have access to your 2FA/MFA authentication tokens.
+- Sensitive data is stored in a secure Apple's Keychain storage.
 - While using Authentity, tokens are hidden when the application is in the background state.
 - Authentity does not use any password or PIN authentication so the biometric security (if enabled) is used all the time.
 - There is no other way anyone can access your generated tokens.
