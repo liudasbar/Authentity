@@ -3,8 +3,9 @@
 //  Authentity
 //
 //  Created by LiudasBar on 2020-05-05.
-//  Copyright (c) 2020 LiudasBar. All rights reserved.
 //
+//
+//  Copyright (c) 2020 Liudas Baronas - Authentity
 //
 //  Copyright (c) 2014-2020 Matt Rubin and the OneTimePassword authors - OneTimePassword
 //
