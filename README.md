@@ -5,7 +5,7 @@ Authentity project is designed to safely keep your authentication tokens in one 
 
 [![Download on the App Store](https://raw.githubusercontent.com/liudasbar/Authentity/master/App_Store_Badge_180px.jpg)](https://apps.apple.com/us/app/authentity/id1511791665)
 
-![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9553.PNG)
+![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9686.PNG)
 
 ![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9556.jpg)
 
