@@ -46,8 +46,6 @@ In case user still cannot access his details inside the application, he is promp
 
 Authentity has one more security feature enabled. That is, related to the user being shown the initial authentication view when application is switched to the *background* state. He needs to re-authenticate when application is reopened.
 
-![Image](https://raw.githubusercontent.com/liudasbar/Authentity/master/IMG_9562.PNG)
-
 Lastly, there is no other way to access 2FA/MFA authentication tokens. Only Face ID / Touch ID.
 
 ## OneTimePassword
