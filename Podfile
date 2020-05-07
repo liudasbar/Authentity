@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'Authentity' do
 pod 'OneTimePassword'
+pod 'KeychainSwift'
 
 end
 

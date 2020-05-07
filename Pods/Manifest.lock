@@ -1,20 +1,24 @@
 PODS:
   - Base32 (1.1.2)
+  - KeychainSwift (19.0.0)
   - OneTimePassword (3.2.0):
     - Base32 (~> 1.1.2)
 
 DEPENDENCIES:
+  - KeychainSwift
   - OneTimePassword
 
 SPEC REPOS:
   trunk:
     - Base32
+    - KeychainSwift
     - OneTimePassword
 
 SPEC CHECKSUMS:
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   OneTimePassword: c00ecc908e67e6c5bfda9d50b0b2e4696d0b066e
 
-PODFILE CHECKSUM: 02798fba1b5eba599310fd002fd63f5f6c40069b
+PODFILE CHECKSUM: c95d47300f6cbccc58e18cdd6e23bd60471f6fc7
 
 COCOAPODS: 1.9.1

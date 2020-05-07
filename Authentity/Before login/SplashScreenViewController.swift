@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SplashScreenViewController: UIViewController {
 
+    var delegate: cameraPermissions?
+    
     @IBOutlet weak var continueButton: UIButton!
     @IBAction func continueButtonAction(_ sender: UIButton) {
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+            if response {
+                print("Camera permissions granted")
+            } else {
+                self.delegate?.cameraPermissionsRequest()
+            }
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -23,3 +33,8 @@ class SplashScreenViewController: UIViewController {
         continueButton.layer.masksToBounds = true
     }
 }
+
+protocol cameraPermissions: AnyObject {
+    func cameraPermissionsRequest()
+}
+

@@ -3,10 +3,12 @@
 //  Authentity
 //
 //  Created by LiudasBar on 2020-05-05.
-//  Copyright © 2020 LiudasBar. All rights reserved.
+//  Copyright (c) 2020 LiudasBar. All rights reserved.
 //
-
-//  Copyright (c) 2014-2020 Matt Rubin and the OneTimePassword authors
+//
+//  Copyright (c) 2014-2020 Matt Rubin and the OneTimePassword authors - OneTimePassword
+//
+//  Copyright (c) 2015 - 2020 Evgenii Neumerzhitckii - KeychainSwift
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -66,24 +68,6 @@ class AddViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         issuerLabel.text = ""
         
         addButton.alpha = 0
-        
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
-            if response {
-                //access granted
-            } else {
-                let alert = UIAlertController(title: "Camera permissions not granted", message: "You may want to enable it in your device's Privacy settings later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
-                      switch action.style{
-                      case .default:
-                            print("")
-                      default:
-                        print("error")
-                    }}))
-                self.present(alert, animated: true, completion: nil)
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
-        
         
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)

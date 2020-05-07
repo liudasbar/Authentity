@@ -3,10 +3,12 @@
 //  Authentity
 //
 //  Created by LiudasBar on 2020-05-05.
-//  Copyright © 2020 LiudasBar. All rights reserved.
+//  Copyright (c) 2020 LiudasBar. All rights reserved.
 //
-
-//  Copyright (c) 2014-2020 Matt Rubin and the OneTimePassword authors
+//
+//  Copyright (c) 2014-2020 Matt Rubin and the OneTimePassword authors - OneTimePassword
+//
+//  Copyright (c) 2015 - 2020 Evgenii Neumerzhitckii - KeychainSwift
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -30,6 +32,7 @@
 import UIKit
 import OneTimePassword
 import LocalAuthentication
+import KeychainSwift
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FoundQR {
     
@@ -40,10 +43,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "authCell", for: indexPath) as! TableViewCell
         
-        let url = URL(string: authArray[indexPath.row])
+        //Get secured keychain item associated with authArray's identifiers
+        let keychainItem = keychain.get(authArray[indexPath.row]) ?? "NONE"
         
+        //Convert Keychain item String to URL
+        let url = URL(string: keychainItem)
+        
+        //Convert URL to Token
         if let token = Token(url: url!) {
             
+            //Used for splitting Token's current password's number: XXXXXX -> XXX XXX
             var newText = String()
             for (index, character) in token.currentPassword!.enumerated() {
                 if index != 0 && index % 3 == 0 {
@@ -77,7 +86,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if editingStyle == .delete {
             self.authArray.remove(at: indexPath.row)
             
-            UserDefaults.standard.set(authArray, forKey: "authArray")
+            //Remove Keychain item associated with authArray's identificator
+            keychain.delete(authArray[indexPath.row])
             
             tableView.reloadData()
         }
@@ -89,12 +99,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     let myContext = LAContext()
     let myLocalizedReasonString = "Unlock Authentity"
     
+    //Array used to store Keychain Keys
     var authArray: [String] = []
+    
+    //Keychain (KeychainSwift)
+    let keychain = KeychainSwift()
+    
     var faceIdBool: Bool = Bool()
     var timer = Timer()
     
     //Add Entry button related
     @IBOutlet weak var addButton: UIButton!
+    @IBAction func addButtonAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "addSegue", sender: nil)
+    }
     
     //Face ID button related
     @IBOutlet weak var faceIdButton: UIButton!
@@ -108,7 +126,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         //For making the connection with AddViewController so it could pass data back
@@ -120,11 +137,39 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //Executed when QR code is found and entry is added
     func qrFound(url: String) {
-        authArray.append(url)
+        //Convert QR code String to URL
+        let urlString = URL(string: url)
+        
+        //Convert QR code URL to Token (for creating a unique identifier)
+        let token = Token(url: urlString!)
+
+        //Create unique identifier for Keychain item
+        let key: String = token!.name + token!.issuer + token!.currentPassword!
+        
+        //Save token to Keychain
+        keychain.set(url, forKey: key)
+        
+        //Check if token saved to Keychain
+        if keychain.set(url, forKey: key) {
+            //Append unique identifier to authArray
+            authArray.append(key)
+            
+            //Update unique identifiers array
+            UserDefaults.standard.set(authArray, forKey: "authArray")
+        } else {
+            let alert = UIAlertController(title: "Error!", message: "Entry not saved: Keychain error", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
+                  switch action.style{
+                  case .default:
+                    print("Continue")
+                  default:
+                    print("Error")
+                }}))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         tableView.reloadData()
-        UserDefaults.standard.set(authArray, forKey: "authArray")
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,7 +195,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Table view element offset
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         
-        self.authArray = UserDefaults.standard.stringArray(forKey: "authArray") ?? []
+        authArray = UserDefaults.standard.stringArray(forKey: "authArray") ?? []
+        
+        tableView.reloadData()
         
         //Hide tableview entries when entered background
         NotificationCenter.default.addObserver(self, selector: #selector(self.background), name: UIApplication.willResignActiveNotification, object: nil)
