@@ -56,7 +56,7 @@
 		F4AEA4D22461E49400F16B76 /* IMG_9554.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_9554.jpg; sourceTree = "<group>"; };
 		F4AEA4D32461E49400F16B76 /* IMG_9556.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_9556.jpg; sourceTree = "<group>"; };
 		F4AEA4DA24623C6D00F16B76 /* security-lower-size.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "security-lower-size.png"; sourceTree = "<group>"; };
-		F4BA09A224DB9029004453F8 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		F4BA09A224DB9029004453F8 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		F4CD2B4F24DB882600175689 /* CopiedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedViewController.swift; sourceTree = "<group>"; };
 		F4E7BDE42461C31400C78473 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		F4E7BDE62461CA8400C78473 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
