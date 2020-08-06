@@ -80,10 +80,11 @@ class InitialViewController: UIViewController, cameraPermissions {
     override func viewDidAppear(_ animated: Bool) {
         //Initial Face ID bool set up
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBeforeFaceIDBool")
-        if launchedBefore {
+        if !launchedBefore {
             keychain.set(false, forKey: "authentityFaceID")
             UserDefaults.standard.set(true, forKey: "launchedBeforeFaceIDBool")
         }
+        keychain.set(false, forKey: "authentityFaceID")
         faceIDBool = keychain.getBool("authentityFaceID")!
         
         continueButton.setTitle("Continue", for: .normal)
