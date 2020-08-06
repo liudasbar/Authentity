@@ -84,7 +84,6 @@ class InitialViewController: UIViewController, cameraPermissions {
             keychain.set(false, forKey: "authentityFaceID")
             UserDefaults.standard.set(true, forKey: "launchedBeforeFaceIDBool")
         }
-        keychain.set(false, forKey: "authentityFaceID")
         faceIDBool = keychain.getBool("authentityFaceID")!
         
         continueButton.setTitle("Continue", for: .normal)
