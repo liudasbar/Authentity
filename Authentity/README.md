@@ -89,6 +89,10 @@ Link to OneTimePassword GitHub: [OneTimePassword](https://github.com/mattrubin/O
 
 If you are the user of the application, as mentioned above, there is no other way to access the information you put inside the application. Only Face ID / Touch ID entry you have enrolled with your iOS device will grant the permission to access the data inside Authentity. If you have questions regarding our privacy policy, please contact us: liudasbar2@gmail.com
 
+## Updates
+
+See Change Log: [OneTimePassword](https://github.com/liudasbar/Authentity/blob/master/Authentity/CHANGELOG.md)
+
 ## License
 
 MIT License
