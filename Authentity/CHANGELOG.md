@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
   
 - Improved timer that refreshes the tokens every 30 seconds.
 - Code optimisations.
+- Biometrics status is saved in Keychain, not User Defaults.
  
 ### Fixed
  
