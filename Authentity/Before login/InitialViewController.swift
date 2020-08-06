@@ -15,7 +15,7 @@ class InitialViewController: UIViewController, cameraPermissions {
     //Continue button related
     @IBOutlet weak var continueButton: UIButton!
     @IBAction func continueButtonAction(_ sender: UIButton) {
-        if continueButton.titleLabel!.text == "Try again" {
+        if continueButton.titleLabel!.text == " Authenticate" {
             biometrics()
         } else if continueButton.titleLabel!.text == "Continue" {
             performSegue(withIdentifier: "loginSegue", sender: nil)
@@ -54,6 +54,7 @@ class InitialViewController: UIViewController, cameraPermissions {
     @IBOutlet weak var infoLabel: UILabel!
     
     let myContext = LAContext()
+    let keychain = KeychainSwift()
     let myLocalizedReasonString = "Unlock Authentity"
     let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
     
@@ -82,8 +83,17 @@ class InitialViewController: UIViewController, cameraPermissions {
         continueButton.alpha = 0
         removeDataButton.alpha = 0
         infoLabel.alpha = 0
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        
+        if UIApplication.shared.applicationState == .active {
+            //Run if app is only in active state (no background or multitasking state)
             self.biometrics()
+        } else {
+            //Run if app is only in background or inactive state
+            continueButton.setTitle(" Authenticate", for: .normal)
+            continueButton.setImage(UIImage(systemName: "faceid"), for: .normal)
+            UIView.animate(withDuration: 1) {
+                self.continueButton.alpha = 1
+            }
         }
     }
     
@@ -111,10 +121,11 @@ extension InitialViewController {
     func biometrics() {
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        let faceIDBool = keychain.getBool("authentityFaceID")!
         
         if launchedBefore  {
             //If biometry check is enabled
-            if UserDefaults.standard.bool(forKey: "faceID") {
+            if faceIDBool {
                 
                 let context = LAContext()
                 var error: NSError?
@@ -134,17 +145,21 @@ extension InitialViewController {
                                     self!.infoLabel.alpha = 0
                                 }
                                 //Must be run in main thread
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    self!.continueButton.setImage(nil, for: .normal)
                                     self!.continueButton.setTitle("Continue", for: .normal)
                                     self!.performSegue(withIdentifier: "loginSegue", sender: nil)
                                 }
                             } else {
                                 //Did not authenticate successfully
-                                self!.continueButton.setTitle("Try again", for: .normal)
-                                //self!.infoLabel.text = "Authentication failed"
-                                UIView.animate(withDuration: 0.5) {
-                                    self!.continueButton.alpha = 1
-                                    self!.infoLabel.alpha = 1
+                                self!.continueButton.setTitle(" Authenticate", for: .normal)
+                                self!.continueButton.setImage(UIImage(systemName: "faceid"), for: .normal)
+                                self!.infoLabel.text = "Authentication failed"
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    UIView.animate(withDuration: 0.5) {
+                                        self!.continueButton.alpha = 1
+                                        self!.infoLabel.alpha = 1
+                                    }
                                 }
                             }
                         }
@@ -158,6 +173,7 @@ extension InitialViewController {
                     UIView.animate(withDuration: 1) {
                         self.removeDataButton.alpha = 1
                         self.continueButton.alpha = 1
+                        self.continueButton.setImage(nil, for: .normal)
                         self.continueButton.setTitle("Quit Authentity", for: .normal)
                         self.infoLabel.alpha = 1
                     }

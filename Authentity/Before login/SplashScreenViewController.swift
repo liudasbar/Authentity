@@ -8,10 +8,13 @@
 
 import UIKit
 import AVFoundation
+import KeychainSwift
 
 class SplashScreenViewController: UIViewController {
 
     var delegate: cameraPermissions?
+    
+    let keychain = KeychainSwift()
     
     @IBOutlet weak var continueButton: UIButton!
     @IBAction func continueButtonAction(_ sender: UIButton) {
@@ -28,6 +31,8 @@ class SplashScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        keychain.set(false, forKey: "authentityFaceID")
 
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true

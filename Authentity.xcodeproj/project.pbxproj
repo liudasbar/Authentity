@@ -25,6 +25,7 @@
 		F4AEA4D62461E49400F16B76 /* IMG_9554.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4AEA4D22461E49400F16B76 /* IMG_9554.jpg */; };
 		F4AEA4D72461E49400F16B76 /* IMG_9556.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4AEA4D32461E49400F16B76 /* IMG_9556.jpg */; };
 		F4AEA4DB24623C6D00F16B76 /* security-lower-size.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AEA4DA24623C6D00F16B76 /* security-lower-size.png */; };
+		F4CD2B5024DB882600175689 /* CopiedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CD2B4F24DB882600175689 /* CopiedViewController.swift */; };
 		F4E7BDE52461C31400C78473 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E7BDE42461C31400C78473 /* InformationViewController.swift */; };
 		F4E7BDE72461CA8400C78473 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F4E7BDE62461CA8400C78473 /* README.md */; };
 		F4E7BDEB2461CCCB00C78473 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E7BDEA2461CCCB00C78473 /* TableViewCell.swift */; };
@@ -54,6 +55,7 @@
 		F4AEA4D22461E49400F16B76 /* IMG_9554.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_9554.jpg; sourceTree = "<group>"; };
 		F4AEA4D32461E49400F16B76 /* IMG_9556.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_9556.jpg; sourceTree = "<group>"; };
 		F4AEA4DA24623C6D00F16B76 /* security-lower-size.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "security-lower-size.png"; sourceTree = "<group>"; };
+		F4CD2B4F24DB882600175689 /* CopiedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedViewController.swift; sourceTree = "<group>"; };
 		F4E7BDE42461C31400C78473 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		F4E7BDE62461CA8400C78473 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4E7BDEA2461CCCB00C78473 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 			children = (
 				F4096A772460D639001D38B2 /* Main.storyboard */,
 				F4E7BDE82461CC6200C78473 /* Before login */,
-				F40BE1ED2461B739003D41F5 /* Authentity.entitlements */,
 				F4E7BDE92461CC7A00C78473 /* After login */,
 				F4AEA4C32461E42600F16B76 /* Images */,
 				F4096A712460D639001D38B2 /* AppDelegate.swift */,
@@ -119,6 +120,7 @@
 				F4E7BDE62461CA8400C78473 /* README.md */,
 				F4096A7A2460D63A001D38B2 /* Assets.xcassets */,
 				F4096A7C2460D63A001D38B2 /* LaunchScreen.storyboard */,
+				F40BE1ED2461B739003D41F5 /* Authentity.entitlements */,
 				F4096A7F2460D63A001D38B2 /* Info.plist */,
 			);
 			path = Authentity;
@@ -156,6 +158,7 @@
 				F4E7BDEA2461CCCB00C78473 /* TableViewCell.swift */,
 				F40BE1E32460EF12003D41F5 /* AddViewController.swift */,
 				F4E7BDE42461C31400C78473 /* InformationViewController.swift */,
+				F4CD2B4F24DB882600175689 /* CopiedViewController.swift */,
 			);
 			path = "After login";
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				F4096A722460D639001D38B2 /* AppDelegate.swift in Sources */,
 				F4096A742460D639001D38B2 /* SceneDelegate.swift in Sources */,
 				F40BE1EF2461BB1C003D41F5 /* SplashScreenViewController.swift in Sources */,
+				F4CD2B5024DB882600175689 /* CopiedViewController.swift in Sources */,
 				F4096A862460D726001D38B2 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Authentity/Authentity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GL8994GPA6;
 				INFOPLIST_FILE = Authentity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -446,7 +450,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liudasbar.Authentity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -462,7 +466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Authentity/Authentity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GL8994GPA6;
 				INFOPLIST_FILE = Authentity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -470,7 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liudasbar.Authentity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
