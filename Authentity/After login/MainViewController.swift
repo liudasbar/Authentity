@@ -124,7 +124,6 @@ class MainViewController: UIViewController, FoundQR {
         tableView.reloadData()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -68,7 +68,6 @@ class InitialViewController: UIViewController, cameraPermissions {
         }
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         //For making the connection with SplashScreenViewController so it could pass data back
@@ -77,7 +76,6 @@ class InitialViewController: UIViewController, cameraPermissions {
             vc?.delegate = self
         }
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         continueButton.setTitle("Continue", for: .normal)
