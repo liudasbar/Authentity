@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/home/Documents/Swift/Applications/Authentity/Authentity/CHANGELOG.md">
-   </FileRef>
-   <FileRef
       location = "group:Authentity.xcodeproj">
    </FileRef>
    <FileRef

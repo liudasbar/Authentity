@@ -57,6 +57,7 @@ class InitialViewController: UIViewController, cameraPermissions {
     let keychain = KeychainSwift()
     let myLocalizedReasonString = "Unlock Authentity"
     let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+    var faceIDBool = Bool()
     
     //Executed when Continue button is pressed on Splash Screen View Controller
     func cameraPermissionsRequest() {
@@ -84,7 +85,9 @@ class InitialViewController: UIViewController, cameraPermissions {
         removeDataButton.alpha = 0
         infoLabel.alpha = 0
         
-        if UIApplication.shared.applicationState == .active {
+        faceIDBool = keychain.getBool("authentityFaceID")!
+        
+        if UIApplication.shared.applicationState == .active || !faceIDBool {
             //Run if app is only in active state (no background or multitasking state)
             self.biometrics()
         } else {
@@ -121,7 +124,6 @@ extension InitialViewController {
     func biometrics() {
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        let faceIDBool = keychain.getBool("authentityFaceID")!
         
         if launchedBefore  {
             //If biometry check is enabled
