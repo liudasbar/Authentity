@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 - Gradual disappearance of Authentity top button.
 - Copy token on tap.
 - Copy action indicator.
+- Haptic feedback.
+- Removal confirmation.
  
 ### Changed
   
