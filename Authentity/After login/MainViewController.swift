@@ -39,6 +39,7 @@ class MainViewController: UIViewController, FoundQR {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var authentityButton: UIButton!
+    @IBOutlet weak var noItemsLabel: UILabel!
     
     let myContext = LAContext()
     let myLocalizedReasonString = "Unlock Authentity"
@@ -51,9 +52,6 @@ class MainViewController: UIViewController, FoundQR {
     
     //Timer related
     var timer = Timer()
-    
-    //Face ID Bool from Keychain
-    var faceIDBool: Bool = Bool()
     
     //Feedback Generator
     var generator = UIImpactFeedbackGenerator()
@@ -122,6 +120,8 @@ class MainViewController: UIViewController, FoundQR {
         }
         
         tableView.reloadData()
+        
+        checkNoItems()
     }
     
     override func viewDidLoad() {
@@ -133,14 +133,10 @@ class MainViewController: UIViewController, FoundQR {
         tableView.layer.masksToBounds = true
         tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        faceIDBool = keychain.getBool("authentityFaceID")!
-        
-        if faceIDBool {
+        if keychain.getBool("authentityFaceID")! {
             faceIdButton.tintColor = UIColor.green
-            keychain.set(true, forKey: "authentityFaceID")
         } else {
             faceIdButton.tintColor = UIColor.darkGray
-            keychain.set(false, forKey: "authentityFaceID")
         }
         
         tableView.delegate = self
@@ -152,6 +148,8 @@ class MainViewController: UIViewController, FoundQR {
         authArray = UserDefaults.standard.stringArray(forKey: "authArray") ?? []
         
         tableView.reloadData()
+        
+        checkNoItems()
         
         //Hide tableview entries and stop timer when entered background
         NotificationCenter.default.addObserver(self, selector: #selector(self.background), name: UIApplication.willResignActiveNotification, object: nil)
@@ -165,7 +163,7 @@ class MainViewController: UIViewController, FoundQR {
     
     
     @objc func background(_ notification: Notification) {
-        if faceIDBool {
+        if keychain.getBool("authentityFaceID")! {
             self.dismiss(animated: true, completion: nil)
         }
         timer.invalidate()
@@ -175,6 +173,14 @@ class MainViewController: UIViewController, FoundQR {
         timer.invalidate()
         checkInitialSeconds()
         scheduledTimerWithTimeInterval()
+    }
+    
+    func checkNoItems() {
+        if authArray.count > 0 {
+            noItemsLabel.alpha = 0
+        } else {
+            noItemsLabel.alpha = 1
+        }
     }
     
     func checkInitialSeconds() {
@@ -299,6 +305,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 UserDefaults.standard.set(self.authArray, forKey: "authArray")
                 
                 tableView.reloadData()
+                
+                self.checkNoItems()
             }))
         }
     }

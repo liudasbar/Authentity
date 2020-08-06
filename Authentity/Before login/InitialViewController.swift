@@ -35,7 +35,7 @@ class InitialViewController: UIViewController, cameraPermissions {
         
         UserDefaults.standard.set(authArray, forKey: "authArray")
         KeychainSwift().clear()
-        UserDefaults.standard.set(false, forKey: "faceID")
+        keychain.set(false, forKey: "authentityFaceID")
         
         let alert = UIAlertController(title: "Warning!", message: "Before you enable Biometrics authentication, lock and unlock your device or check Biometrics permissions in Settings!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
@@ -78,12 +78,18 @@ class InitialViewController: UIViewController, cameraPermissions {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        //Initial Face ID bool set up
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBeforeFaceIDBool")
+        if launchedBefore {
+            keychain.set(false, forKey: "authentityFaceID")
+            UserDefaults.standard.set(true, forKey: "launchedBeforeFaceIDBool")
+        }
+        faceIDBool = keychain.getBool("authentityFaceID")!
+        
         continueButton.setTitle("Continue", for: .normal)
         continueButton.alpha = 0
         removeDataButton.alpha = 0
         infoLabel.alpha = 0
-        
-        faceIDBool = keychain.getBool("authentityFaceID")!
         
         if UIApplication.shared.applicationState == .active || !faceIDBool {
             //Run if app is only in active state (no background or multitasking state)
@@ -123,7 +129,7 @@ extension InitialViewController {
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
-        if launchedBefore  {
+        if launchedBefore {
             //If biometry check is enabled
             if faceIDBool {
                 
