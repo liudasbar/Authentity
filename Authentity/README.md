@@ -91,7 +91,7 @@ If you are the user of the application, as mentioned above, there is no other wa
 
 ## Updates
 
-See Change Log: [OneTimePassword](https://github.com/liudasbar/Authentity/blob/master/Authentity/CHANGELOG.md)
+See: [Change Log](https://github.com/liudasbar/Authentity/blob/master/Authentity/CHANGELOG.md)
 
 ## License
 
