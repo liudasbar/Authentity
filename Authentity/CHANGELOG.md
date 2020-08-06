@@ -1,4 +1,4 @@
-# Change Log
+# Change Log 
 All notable changes to this project will be documented in this file.
 
 ## [1.4] - 2020-08-06
@@ -17,5 +17,3 @@ All notable changes to this project will be documented in this file.
 ### Fixed
  
  - Slow app loading issues.
-
-
