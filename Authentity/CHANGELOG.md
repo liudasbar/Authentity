@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Copy action indicator.
 - Haptic feedback.
 - Removal confirmation.
+- No Items indicator.
  
 ### Changed
   
