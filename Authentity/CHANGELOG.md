@@ -4,10 +4,11 @@ All notable changes to this project will be documented in this file.
 ## [1.5] - 2021 Jan 11
  
 ### Added
- 
+
 ### Changed
   
 - Biometrics request flow.
+- Table view visuals improvements.
  
 ### Fixed
  
