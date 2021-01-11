@@ -15,13 +15,15 @@ class InitialViewController: UIViewController, cameraPermissions {
     //Continue button related
     @IBOutlet weak var continueButton: UIButton!
     @IBAction func continueButtonAction(_ sender: UIButton) {
-        if continueButton.titleLabel!.text == " Authenticate" {
-            biometrics()
-        } else if continueButton.titleLabel!.text == "Continue" {
-            performSegue(withIdentifier: "loginSegue", sender: nil)
-            infoLabel.text = ""
-            UIView.animate(withDuration: 0.5) {
-                self.continueButton.alpha = 0
+        if continueButton.titleLabel!.text == "Continue" {
+            if faceIDBool == true {
+                biometrics()
+            } else {
+                performSegue(withIdentifier: "loginSegue", sender: nil)
+                infoLabel.text = ""
+                UIView.animate(withDuration: 0.5) {
+                    self.continueButton.alpha = 0
+                }
             }
         } else if continueButton.titleLabel!.text == "Quit Authentity" {
             exit(0)
@@ -39,15 +41,15 @@ class InitialViewController: UIViewController, cameraPermissions {
         
         let alert = UIAlertController(title: "Warning!", message: "Before you enable Biometrics authentication, lock and unlock your device or check Biometrics permissions in Settings!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
-              switch action.style{
-              case .default:
-                self.continueButton.alpha = 0
-                self.removeDataButton.alpha = 0
-                self.infoLabel.alpha = 0
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-              default:
-                print("error")
-            }}))
+                                        switch action.style{
+                                        case .default:
+                                            self.continueButton.alpha = 0
+                                            self.removeDataButton.alpha = 0
+                                            self.infoLabel.alpha = 0
+                                            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                                        default:
+                                            print("error")
+                                        }}))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -58,6 +60,7 @@ class InitialViewController: UIViewController, cameraPermissions {
     let myLocalizedReasonString = "Unlock Authentity"
     let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
     var faceIDBool = Bool()
+    var faceIDInAction = false
     
     //Executed when Continue button is pressed on Splash Screen View Controller
     func cameraPermissionsRequest() {
@@ -77,31 +80,49 @@ class InitialViewController: UIViewController, cameraPermissions {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    @objc func initiateLogin() {
         //Initial Face ID bool set up
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBeforeFaceIDBool")
         if !launchedBefore {
+            performSegue(withIdentifier: "splashScreenSegue", sender: nil)
+            continueButton.setTitle("Continue", for: .normal)
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UIView.animate(withDuration: 0.5) {
+                self.continueButton.alpha = 1
+            }
+            
             keychain.set(false, forKey: "authentityFaceID")
             UserDefaults.standard.set(true, forKey: "launchedBeforeFaceIDBool")
         }
-        faceIDBool = keychain.getBool("authentityFaceID")!
+        
+        faceIDBool = keychain.getBool("authentityFaceID") ?? false
         
         continueButton.setTitle("Continue", for: .normal)
         continueButton.alpha = 0
         removeDataButton.alpha = 0
         infoLabel.alpha = 0
         
-        if UIApplication.shared.applicationState == .active || !faceIDBool {
-            //Run if app is only in active state (no background or multitasking state)
-            self.biometrics()
+        if faceIDBool == true && UIApplication.shared.applicationState == .active {
+            //Run if app is only in active state (no background or multitasking state) and biometrics enabled
+            biometrics()
+            
+        } else if faceIDBool == false && UIApplication.shared.applicationState == .active {
+            //Run if app is only in active state (no background or multitasking state) and biometrics disabled
+            continueButton.setTitle("Continue", for: .normal)
+            UIView.animate(withDuration: 0.5) {
+                self.continueButton.alpha = 1
+            }
         } else {
-            //Run if app is only in background or inactive state
-            continueButton.setTitle(" Authenticate", for: .normal)
-            continueButton.setImage(UIImage(systemName: "faceid"), for: .normal)
-            UIView.animate(withDuration: 1) {
+            self.continueButton.setTitle("Continue", for: .normal)
+            UIView.animate(withDuration: 0.5) {
                 self.continueButton.alpha = 1
             }
         }
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        initiateLogin()
     }
     
     override func viewDidLoad() {
@@ -115,88 +136,91 @@ class InitialViewController: UIViewController, cameraPermissions {
         
         continueButton.setTitle("Continue", for: .normal)
         
-        continueButton.alpha = 0
         removeDataButton.alpha = 0
+        continueButton.alpha = 0
         infoLabel.alpha = 0
         
         infoLabel.text = ""
     }
-}
-
-extension InitialViewController {
+    
     
     func biometrics() {
-        
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        
-        if launchedBefore {
-            //If biometry check is enabled
-            if faceIDBool {
+        //If biometry check is enabled
+        if faceIDBool {
+            let context = LAContext()
+            var error: NSError?
+            
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                let reason = "Unlock Authentity"
                 
-                let context = LAContext()
-                var error: NSError?
+                //Remove observer for active window check
+                NotificationCenter.default.removeObserver(self)
                 
-                if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                    let reason = "Unlock Authentity"
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                    [weak self] success, authenticationError in
                     
-                    context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
-                        [weak self] success, authenticationError in
-                        
-                        DispatchQueue.main.async {
-                            if success {
-                                //Authenticated successfully
+                    //Remove observer for active window check
+                    NotificationCenter.default.removeObserver(self!)
+                    
+                    DispatchQueue.main.async {
+                        if success {
+                            //Authenticated successfully
+                            UIView.animate(withDuration: 0.5) {
+                                self!.continueButton.alpha = 0
+                                self!.removeDataButton.alpha = 0
+                                self!.infoLabel.alpha = 0
+                            }
+                            //Must be run in main thread
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self!.continueButton.setTitle("Continue", for: .normal)
+                                self!.performSegue(withIdentifier: "loginSegue", sender: nil)
+                            }
+                            
+                            //Re-add observer for active window check
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                NotificationCenter.default.addObserver(self!, selector:#selector(self!.initiateLogin), name: UIApplication.didBecomeActiveNotification, object: nil)
+                            }
+                        } else {
+                            //Did not authenticate successfully
+                            self!.continueButton.setTitle("Continue", for: .normal)
+                            self!.infoLabel.text = "Authentication failed"
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 UIView.animate(withDuration: 0.5) {
-                                    self!.continueButton.alpha = 0
-                                    self!.removeDataButton.alpha = 0
-                                    self!.infoLabel.alpha = 0
+                                    self!.continueButton.alpha = 1
+                                    self!.infoLabel.alpha = 1
                                 }
-                                //Must be run in main thread
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                    self!.continueButton.setImage(nil, for: .normal)
-                                    self!.continueButton.setTitle("Continue", for: .normal)
-                                    self!.performSegue(withIdentifier: "loginSegue", sender: nil)
-                                }
-                            } else {
-                                //Did not authenticate successfully
-                                self!.continueButton.setTitle(" Authenticate", for: .normal)
-                                self!.continueButton.setImage(UIImage(systemName: "faceid"), for: .normal)
-                                self!.infoLabel.text = "Authentication failed"
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                    UIView.animate(withDuration: 0.5) {
-                                        self!.continueButton.alpha = 1
-                                        self!.infoLabel.alpha = 1
-                                    }
+                                
+                                //Re-add observer for active window check
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                    NotificationCenter.default.addObserver(self!, selector:#selector(self!.initiateLogin), name: UIApplication.didBecomeActiveNotification, object: nil)
                                 }
                             }
                         }
                     }
-                    self.myContext.localizedFallbackTitle = ""  //Disable password log in
-                    
-                } else {
-                    //No biometry available, exceeded biometry authentication checks or Touch ID / Face ID permissions not enabled
-                    infoLabel.text = "No biometry available. To continue using Authentity, quit Authentity, lock and unlock your phone or check Biometrics permissions in Settings!"
-                    
-                    UIView.animate(withDuration: 1) {
-                        self.removeDataButton.alpha = 1
-                        self.continueButton.alpha = 1
-                        self.continueButton.setImage(nil, for: .normal)
-                        self.continueButton.setTitle("Quit Authentity", for: .normal)
-                        self.infoLabel.alpha = 1
-                    }
                 }
+                self.myContext.localizedFallbackTitle = ""  //Disable password log in
+                
             } else {
-                //If biometry check is not enabled
-                performSegue(withIdentifier: "loginSegue", sender: nil)
+                //No biometry available, exceeded biometry authentication checks or Touch ID / Face ID permissions not enabled
+                infoLabel.text = "No biometry available.\n\nTo continue using Authentity, quit Authentity, lock and unlock your phone, or check Biometrics permissions in Settings!"
+                
+                UIView.animate(withDuration: 1) {
+                    self.removeDataButton.alpha = 1
+                    self.continueButton.alpha = 1
+                    self.continueButton.setImage(nil, for: .normal)
+                    self.continueButton.setTitle("Quit Authentity", for: .normal)
+                    self.infoLabel.alpha = 1
+                }
+                
+                //Re-add observer for active window check
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    NotificationCenter.default.addObserver(self, selector:#selector(self.initiateLogin), name: UIApplication.didBecomeActiveNotification, object: nil)
+                    self.faceIDInAction = false
+                }
             }
         } else {
-            //First time launch Splash Screen
-            performSegue(withIdentifier: "splashScreenSegue", sender: nil)
-            continueButton.setTitle("Continue", for: .normal)
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-            UIView.animate(withDuration: 0.5) {
-                self.continueButton.alpha = 1
-            }
+            //If biometry check is not enabled
+            performSegue(withIdentifier: "loginSegue", sender: nil)
         }
     }
-    
 }

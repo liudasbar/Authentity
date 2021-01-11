@@ -1,7 +1,21 @@
 # Change Log 
 All notable changes to this project will be documented in this file.
 
-## [1.4] - 2020-08-06
+## [1.5] - 2021 Jan 11
+ 
+### Added
+ 
+### Changed
+  
+- Biometrics request flow.
+ 
+### Fixed
+ 
+ - Biometrics not showing up.
+ - More stable application start up.
+
+
+## [1.4] - 2020 Aug 06
  
 ### Added
 
